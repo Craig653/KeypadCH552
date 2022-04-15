@@ -21,7 +21,7 @@ ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 CFLAGS := -V -mmcs51 --model-small \
 	--xram-size $(XRAM_SIZE) --xram-loc $(XRAM_LOC) \
 	--code-size $(CODE_SIZE) \
-	-I$(ROOT_DIR)../include -DFREQ_SYS=$(FREQ_SYS) \
+	-I$(ROOT_DIR)/include -DFREQ_SYS=$(FREQ_SYS) \
 	$(EXTRA_FLAGS)
 
 LFLAGS := $(CFLAGS)
@@ -49,10 +49,9 @@ flash: $(TARGET).bin pre-flash
 	$(WCHISP) $(TARGET).bin
 
 .DEFAULT_GOAL := all
-all: $(TARGET).bin $(TARGET).hex
+all: $(TARGET).bin $(TARGET).hex 
 
 clean:
-	rm -f \
 	$(notdir $(RELS:.rel=.asm)) \
 	$(notdir $(RELS:.rel=.lst)) \
 	$(notdir $(RELS:.rel=.mem)) \
