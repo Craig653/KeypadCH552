@@ -49,19 +49,30 @@ flash: $(TARGET).bin pre-flash
 	$(WCHISP) $(TARGET).bin
 
 .DEFAULT_GOAL := all
-all: $(TARGET).bin $(TARGET).hex 
+all: $(TARGET).bin $(TARGET).hex clean
 
 clean:
-	$(notdir $(RELS:.rel=.asm)) \
-	$(notdir $(RELS:.rel=.lst)) \
-	$(notdir $(RELS:.rel=.mem)) \
-	$(notdir $(RELS:.rel=.rel)) \
-	$(notdir $(RELS:.rel=.rst)) \
-	$(notdir $(RELS:.rel=.sym)) \
-	$(notdir $(RELS:.rel=.adb)) \
-	$(TARGET).lk \
-	$(TARGET).map \
-	$(TARGET).mem \
-	$(TARGET).ihx \
-	$(TARGET).hex \
-	$(TARGET).bin
+	del *.asm
+	del *.map
+	del *.lst
+	del *.rel
+	del *.rst
+	del *.sym
+	del *.adb
+	del *.lk
+	del *.mem
+	del *.ihex
+
+cleanall:
+	del *.asm
+	del *.map
+	del *.lst
+	del *.rel
+	del *.rst
+	del *.sym
+	del *.adb
+	del *.lk
+	del *.mem
+	del *.ihex
+	del *.hex 
+	del *.bin
