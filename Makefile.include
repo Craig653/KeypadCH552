@@ -58,10 +58,9 @@ clean:
 	del *.rel
 	del *.rst
 	del *.sym
-	del *.adb
 	del *.lk
 	del *.mem
-	del *.ihex
+	del *.ihx
 
 cleanall:
 	del *.asm
@@ -70,9 +69,8 @@ cleanall:
 	del *.rel
 	del *.rst
 	del *.sym
-	del *.adb
 	del *.lk
 	del *.mem
-	del *.ihex
+	del *.ihx
 	del *.hex 
 	del *.bin
